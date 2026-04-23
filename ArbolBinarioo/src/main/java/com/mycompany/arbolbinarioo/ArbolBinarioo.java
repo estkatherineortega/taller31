@@ -4,6 +4,7 @@
 
 package com.mycompany.arbolbinarioo;
 
+
 class Contacto {
     String nombre;
     String telefono;
@@ -57,7 +58,7 @@ class ArbolContactos {
         }
     }
 
-    // Mostrar contactos en orden alfabético
+    // Mostrar en orden
     public void mostrarEnOrden(Nodo raiz) {
         if (raiz != null) {
             mostrarEnOrden(raiz.izquierda);
@@ -67,8 +68,10 @@ class ArbolContactos {
     }
 }
 
-public class Main {
+public class ArbolBinarioo {
+
     public static void main(String[] args) {
+
         ArbolContactos agenda = new ArbolContactos();
 
         // Insertar contactos
@@ -77,18 +80,18 @@ public class Main {
         agenda.raiz = agenda.insertar(agenda.raiz, new Contacto("Luis", "789"));
         agenda.raiz = agenda.insertar(agenda.raiz, new Contacto("Beatriz", "321"));
 
-        // Mostrar contactos
-        System.out.println("Contactos ordenados:");
+        // Mostrar contactos ordenados
+        System.out.println("Contactos en orden:");
         agenda.mostrarEnOrden(agenda.raiz);
 
-        // Buscar un contacto
-        System.out.println("\nBuscando contacto...");
+        // Buscar contacto
+        System.out.println("\nBuscando contacto 'Luis':");
         Contacto encontrado = agenda.buscar(agenda.raiz, "Luis");
 
         if (encontrado != null) {
             System.out.println("Encontrado: " + encontrado.nombre + " - " + encontrado.telefono);
         } else {
-            System.out.println("Contacto no encontrado");
+            System.out.println("No encontrado");
         }
     }
 }
